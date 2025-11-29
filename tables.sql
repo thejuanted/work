@@ -1,13 +1,13 @@
 CREATE TABLE club_member (
     userID INT AUTO_INCREMENT,
     userType VARCHAR(10) NOT NULL,
-    lastName VARCHAR(50) NOT NULL,
-    firstName VARCHAR(50) NOT NULL,
-    phoneNumber VARCHAR(15) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    lastName VARCHAR(15) NOT NULL,
+    firstName VARCHAR(15) NOT NULL,
+    phoneNumber VARCHAR(15) NULL,
+    email VARCHAR(60) NULL,
 
     -- Constraints
-    CONSTRAINT chk_userType CHECK (userType IN ('Advisor', 'Officer', 'Reserver', 'Member')),
-    CONSTRAINT uq_phoneNumber UNIQUE (phoneNumber),
-    CONSTRAINT pk_userID PRIMARY KEY (userID)
+constraint 	ClubMemberPK primary key (userID),
+constraint 	ClubMemberAK unique (phoneNumber),
+constraint userTypeCheck Check (userType in ('Advisor','Officer','Reserver','Member'))
 );
